@@ -4,14 +4,23 @@
       <div class="full-inner">
         <div class="main-inner animate-inner">
           <div class="top-control">
-            <div class="close-button" @click="openCommentEditorBox(false)">
+            <div
+              class="close-button"
+              @click="openCommentEditorBox(false)"
+            >
               <i class="fa-solid fa-xmark" />
             </div>
           </div>
           <div class="full-title">
-            <div v-if="showCommentEditorType === 'patchComment'">正在編輯您的留言</div>
-            <div v-else-if="showCommentEditorType === 'postReply'">正在回覆留言</div>
-            <div v-else-if="showCommentEditorType === 'patchReply'">正在編輯您回覆的留言</div>
+            <div v-if="showCommentEditorType === 'patchComment'">
+              正在編輯您的留言
+            </div>
+            <div v-else-if="showCommentEditorType === 'postReply'">
+              正在回覆留言
+            </div>
+            <div v-else-if="showCommentEditorType === 'patchReply'">
+              正在編輯您回覆的留言
+            </div>
           </div>
           <div class="comment-box-editor">
             <editor-content :editor="editor" />

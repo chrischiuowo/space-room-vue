@@ -1,12 +1,24 @@
 <template>
   <div class="user-comment">
-    <div class="common-title" data-aos="fade" data-aos-delay="800">
-      <p v-if="user_id === nowUser._id">我留言的貼文</p>
-      <p v-else>{{ nowUser.name }} 留言的貼文</p>
+    <div
+      class="common-title"
+      data-aos="fade"
+      data-aos-delay="800"
+    >
+      <p v-if="user_id === nowUser._id">
+        我留言的貼文
+      </p>
+      <p v-else>
+        {{ nowUser.name }} 留言的貼文
+      </p>
     </div>
     <div class="posts">
       <template v-if="posts?.length">
-        <PostItem v-for="post in posts" :key="post._id" :post="post" />
+        <PostItem
+          v-for="post in posts"
+          :key="post._id"
+          :post="post"
+        />
       </template>
       <template v-else>
         <PostItem :post="{}" />

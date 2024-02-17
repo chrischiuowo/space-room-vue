@@ -2,29 +2,61 @@
   <canvas id="canvas" />
   <section class="auth-base">
     <div class="container-box">
-      <div class="container" data-aos="zoom-in" data-aos-delay="400">
-        <swiper class="swiper-no-swiping" :speed="1000" :auto-height="true" @swiper="onSwiper">
+      <div
+        class="container"
+        data-aos="zoom-in"
+        data-aos-delay="400"
+      >
+        <swiper
+          class="swiper-no-swiping"
+          :speed="1000"
+          :auto-height="true"
+          @swiper="onSwiper"
+        >
           <swiper-slide>
             <div class="slide-inner">
               <div class="content-box">
                 <h1 class="main-title">
-                  {{ appTitle }}
+                  SpaceRoom
                 </h1>
                 <h2>展開全新社交圈吧</h2>
                 <div class="input-group">
-                  <input v-model="loginValue.email" type="text" placeholder="Email" />
-                  <input v-model="loginValue.password" type="password" placeholder="Password" />
+                  <input
+                    v-model="loginValue.email"
+                    type="text"
+                    placeholder="Email"
+                  >
+                  <input
+                    v-model="loginValue.password"
+                    type="password"
+                    placeholder="Password"
+                  >
                 </div>
                 <template v-if="errorMessage.all.length">
                   <div class="err-t">
-                    <p v-for="item in errorMessage.all" :key="item">
+                    <p
+                      v-for="item in errorMessage.all"
+                      :key="item"
+                    >
                       {{ item }}
                     </p>
                   </div>
                 </template>
                 <div class="button-group">
-                  <button class="base-button blue" type="button" @click="loginEvent">登入</button>
-                  <button class="base-button" type="button" @click="slideToTarget(1)">前往註冊</button>
+                  <button
+                    class="base-button blue"
+                    type="button"
+                    @click="loginEvent"
+                  >
+                    登入
+                  </button>
+                  <button
+                    class="base-button"
+                    type="button"
+                    @click="slideToTarget(1)"
+                  >
+                    前往註冊
+                  </button>
                 </div>
               </div>
             </div>
@@ -33,25 +65,56 @@
             <div class="slide-inner">
               <div class="content-box">
                 <h1 class="main-title">
-                  {{ appTitle }}
+                  SpaceRoom
                 </h1>
                 <h2>註冊會員！</h2>
                 <div class="input-group">
-                  <input v-model="registerValue.name" type="text" placeholder="Name" />
-                  <input v-model="registerValue.email" type="text" placeholder="Email" />
-                  <input v-model="registerValue.password" type="password" placeholder="Password" />
-                  <input v-model="registerValue.confirmPassword" type="password" placeholder="ConfirmPassword" />
+                  <input
+                    v-model="registerValue.name"
+                    type="text"
+                    placeholder="Name"
+                  >
+                  <input
+                    v-model="registerValue.email"
+                    type="text"
+                    placeholder="Email"
+                  >
+                  <input
+                    v-model="registerValue.password"
+                    type="password"
+                    placeholder="Password"
+                  >
+                  <input
+                    v-model="registerValue.confirmPassword"
+                    type="password"
+                    placeholder="ConfirmPassword"
+                  >
                 </div>
                 <template v-if="errorMessage.all.length">
                   <div class="err-t">
-                    <p v-for="item in errorMessage.all" :key="item">
+                    <p
+                      v-for="item in errorMessage.all"
+                      :key="item"
+                    >
                       {{ item }}
                     </p>
                   </div>
                 </template>
                 <div class="button-group">
-                  <button class="base-button blue" type="button" @click="signUpEvent">註冊</button>
-                  <button class="base-button" type="button" @click="slideToTarget(0)">前往登入</button>
+                  <button
+                    class="base-button blue"
+                    type="button"
+                    @click="signUpEvent"
+                  >
+                    註冊
+                  </button>
+                  <button
+                    class="base-button"
+                    type="button"
+                    @click="slideToTarget(0)"
+                  >
+                    前往登入
+                  </button>
                 </div>
               </div>
             </div>
@@ -73,7 +136,6 @@ import { useUserStore } from '@/stores/user'
 import { useModalStore } from '@/stores/modal'
 import { drawSpace } from '@/services/space'
 
-const appTitle = ref(import.meta.env.VITE_APP_NAME)
 // 錯誤訊息
 const errorMessage = reactive({ all: [] })
 // store 資料

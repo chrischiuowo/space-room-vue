@@ -1,18 +1,29 @@
 <template>
   <div class="posts-outer">
-    <div class="base-tools" data-aos="fade" data-aos-delay="1000">
+    <div
+      class="base-tools"
+      data-aos="fade"
+      data-aos-delay="1000"
+    >
       <FilterSort />
       <SearchBar />
     </div>
     <div class="posts">
       <template v-if="posts.length">
-        <PostItem v-for="post in posts" :key="post._id" :post="post" />
+        <PostItem
+          v-for="post in posts"
+          :key="post._id"
+          :post="post"
+        />
       </template>
       <template v-else>
         <PostItem :post="{}" />
       </template>
     </div>
-    <div ref="loadDetector" class="loading-detector" />
+    <div
+      ref="loadDetector"
+      class="loading-detector"
+    />
   </div>
   <PostBox />
 </template>

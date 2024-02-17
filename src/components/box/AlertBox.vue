@@ -1,8 +1,15 @@
 <template>
-  <div v-if="showAlertText?.length" class="alert-box" :class="showAlertCls">
+  <div
+    v-if="showAlertText?.length"
+    class="alert-box"
+    :class="showAlertCls"
+  >
     <div class="alert-container">
       <div class="alert-inner">
-        <p v-for="t in showAlertText" :key="t">
+        <p
+          v-for="t in showAlertText"
+          :key="t"
+        >
           {{ t }}
         </p>
       </div>

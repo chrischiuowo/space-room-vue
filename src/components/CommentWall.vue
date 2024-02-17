@@ -1,7 +1,13 @@
 <template>
-  <div v-if="comments" class="comments">
+  <div
+    v-if="comments"
+    class="comments"
+  >
     <ul>
-      <li v-for="comment in comments" :key="comment._id">
+      <li
+        v-for="comment in comments"
+        :key="comment._id"
+      >
         <div class="div-wrap">
           <div class="user-photo-outer">
             <UserPhoto :photo="comment.user.avatar" />
@@ -23,7 +29,12 @@
               <!--eslint-enable-->
             </div>
             <div class="control-panel">
-              <button type="button" @click="openCommentEditorBox(true, 'postReply', comment)">回覆</button>
+              <button
+                type="button"
+                @click="openCommentEditorBox(true, 'postReply', comment)"
+              >
+                回覆
+              </button>
               <button
                 v-if="comment.user._id === userStore.user_id"
                 type="button"
@@ -42,7 +53,11 @@
           </div>
         </div>
         <template v-if="comment.commentReplies">
-          <div v-for="commonReply in comment.commentReplies" :key="commonReply._id" class="div-wrap2">
+          <div
+            v-for="commonReply in comment.commentReplies"
+            :key="commonReply._id"
+            class="div-wrap2"
+          >
             <div class="user-photo-outer">
               <UserPhoto :photo="commonReply.user.avatar" />
             </div>
@@ -62,9 +77,22 @@
                 <div v-html="commonReply.content" />
                 <!--eslint-enable-->
               </div>
-              <div v-if="commonReply.user._id === userStore.user_id" class="control-panel">
-                <button type="button" @click="openCommentEditorBox(true, 'patchReply', commonReply)">編輯</button>
-                <button type="button" @click="deleteReplyHandler(commonReply)">刪除</button>
+              <div
+                v-if="commonReply.user._id === userStore.user_id"
+                class="control-panel"
+              >
+                <button
+                  type="button"
+                  @click="openCommentEditorBox(true, 'patchReply', commonReply)"
+                >
+                  編輯
+                </button>
+                <button
+                  type="button"
+                  @click="deleteReplyHandler(commonReply)"
+                >
+                  刪除
+                </button>
               </div>
             </div>
           </div>

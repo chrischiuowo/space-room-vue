@@ -1,18 +1,32 @@
 <template>
   <div class="more-user">
-    <div class="common-title" data-aos="fade" data-aos-delay="800">
+    <div
+      class="common-title"
+      data-aos="fade"
+      data-aos-delay="800"
+    >
       <p>找朋友</p>
     </div>
     <div class="users">
       <template v-if="users.length">
-        <UserItem v-for="user in users" :key="user._id" :user="user" />
+        <UserItem
+          v-for="user in users"
+          :key="user._id"
+          :user="user"
+        />
       </template>
       <template v-else>
         <UserItem :user="{}" />
       </template>
     </div>
     <div class="button-wrap">
-      <button class="base-button blue" type="button" @click.stop="getData()">重新尋找</button>
+      <button
+        class="base-button blue"
+        type="button"
+        @click.stop="getData()"
+      >
+        重新尋找
+      </button>
     </div>
   </div>
 </template>

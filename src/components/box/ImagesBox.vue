@@ -1,9 +1,15 @@
 <template>
   <div class="full-box">
-    <div class="full-bg" @click="openImagesBox(false)" />
+    <div
+      class="full-bg"
+      @click="openImagesBox(false)"
+    />
     <div class="full-container">
       <div class="full-inner">
-        <div class="close-button" @click="openImagesBox(false)">
+        <div
+          class="close-button"
+          @click="openImagesBox(false)"
+        >
           <i class="fa-solid fa-xmark" />
         </div>
         <div class="images-inner">
@@ -17,8 +23,15 @@
             :fade-effect="{ crossFade: true }"
             :lazy="{ loadPrevNext: true }"
           >
-            <swiper-slide v-for="(image, index) in showImagesTemp" :key="'image' + index">
-              <img class="swiper-lazy" :data-src="image.link" alt="" />
+            <swiper-slide
+              v-for="(image, index) in showImagesTemp"
+              :key="'image' + index"
+            >
+              <img
+                class="swiper-lazy"
+                :data-src="image.link"
+                alt=""
+              >
             </swiper-slide>
           </swiper>
         </div>

@@ -1,12 +1,19 @@
 <template>
   <div class="post-only">
     <div class="tool">
-      <a class="back" @click.prevent="router.back()">
+      <a
+        class="back"
+        @click.prevent="router.back()"
+      >
         <i class="fa-solid fa-circle-arrow-left" />
       </a>
     </div>
     <template v-if="posts?.length">
-      <PostItem v-for="post in posts" :key="post._id" :post="post" />
+      <PostItem
+        v-for="post in posts"
+        :key="post._id"
+        :post="post"
+      />
     </template>
     <template v-else>
       <PostItem :post="{}" />

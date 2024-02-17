@@ -1,51 +1,125 @@
 <template>
   <div class="user-update">
-    <div class="common-title" data-aos="fade" data-aos-delay="800">
+    <div
+      class="common-title"
+      data-aos="fade"
+      data-aos-delay="800"
+    >
       <p>修改個人資料</p>
     </div>
-    <div class="update-inner" data-aos="fade">
+    <div
+      class="update-inner"
+      data-aos="fade"
+    >
       <div class="tabs">
-        <div class="tab" :class="{ active: tabSwitch === 1 }" @click="switchPage(1)">資料修改</div>
-        <div class="tab" :class="{ active: tabSwitch === 2 }" @click="switchPage(2)">重設密碼</div>
+        <div
+          class="tab"
+          :class="{ active: tabSwitch === 1 }"
+          @click="switchPage(1)"
+        >
+          資料修改
+        </div>
+        <div
+          class="tab"
+          :class="{ active: tabSwitch === 2 }"
+          @click="switchPage(2)"
+        >
+          重設密碼
+        </div>
       </div>
       <div class="contents">
-        <div v-show="tabSwitch === 1" class="content">
+        <div
+          v-show="tabSwitch === 1"
+          class="content"
+        >
           <div class="user-iamge">
             <div class="user-photo-outer">
-              <UserPhoto v-if="!tempFile" :photo="tempUser.avatar" />
-              <img v-else :src="tempUser.avatar?.link" alt="" />
+              <UserPhoto
+                v-if="!tempFile"
+                :photo="tempUser.avatar"
+              />
+              <img
+                v-else
+                :src="tempUser.avatar?.link"
+                alt=""
+              >
             </div>
-            <button class="image-add" type="button">
+            <button
+              class="image-add"
+              type="button"
+            >
               <label for="upload">
                 上傳大頭貼
-                <input id="upload" name="image" type="file" accept="image/*" @change="preloadImageHandler" />
+                <input
+                  id="upload"
+                  name="image"
+                  type="file"
+                  accept="image/*"
+                  @change="preloadImageHandler"
+                >
               </label>
             </button>
           </div>
           <div class="inp name">
             <p>名稱</p>
-            <input v-model="tempUser.name" type="text" placeholder="Name" />
+            <input
+              v-model="tempUser.name"
+              type="text"
+              placeholder="Name"
+            >
           </div>
-          <button class="base-button blue" type="button" @click="patchUserInfoHandler">更新個人資料</button>
-          <button class="base-button red delete" type="button" @click="deleteUserInfoHandler">刪除帳號</button>
+          <button
+            class="base-button blue"
+            type="button"
+            @click="patchUserInfoHandler"
+          >
+            更新個人資料
+          </button>
+          <button
+            class="base-button red delete"
+            type="button"
+            @click="deleteUserInfoHandler"
+          >
+            刪除帳號
+          </button>
         </div>
-        <div v-show="tabSwitch === 2" class="content">
+        <div
+          v-show="tabSwitch === 2"
+          class="content"
+        >
           <div class="inp password">
             <p>輸入密碼</p>
-            <input v-model="updateValue.password" type="password" placeholder="Password" />
+            <input
+              v-model="updateValue.password"
+              type="password"
+              placeholder="Password"
+            >
           </div>
           <div class="inp confirmPassword">
             <p>再次輸入密碼</p>
-            <input v-model="updateValue.confirmPassword" type="password" placeholder="ConfirmPassword" />
+            <input
+              v-model="updateValue.confirmPassword"
+              type="password"
+              placeholder="ConfirmPassword"
+            >
           </div>
           <template v-if="errorMessage.all.length">
             <div class="err-t">
-              <p v-for="item in errorMessage.all" :key="item">
+              <p
+                v-for="item in errorMessage.all"
+                :key="item"
+              >
                 {{ item }}
               </p>
             </div>
           </template>
-          <button class="base-button blue" type="button" @click="updatePassword">重設密碼</button>
+          <button
+            class="base-button blue"
+            type="button"
+            @click="updatePassword"
+          >
+            重設密碼
+          </button>
         </div>
       </div>
     </div>

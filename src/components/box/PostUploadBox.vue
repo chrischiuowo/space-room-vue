@@ -4,20 +4,34 @@
       <div class="full-inner">
         <div class="main-inner animate-inner">
           <div class="top-control">
-            <div class="close-button" @click="openPostUploadBox(false)">
+            <div
+              class="close-button"
+              @click="openPostUploadBox(false)"
+            >
               <i class="fa-solid fa-xmark" />
             </div>
           </div>
           <div class="full-title">
-            <p v-if="isPatchMode">編輯動態中</p>
-            <p v-else>新增動態吧</p>
+            <p v-if="isPatchMode">
+              編輯動態中
+            </p>
+            <p v-else>
+              新增動態吧
+            </p>
           </div>
           <div class="inner-content">
             <div class="wrap editor-section">
-              <p v-if="isPatchMode">編輯貼文內容</p>
-              <p v-else>輸入貼文內容</p>
+              <p v-if="isPatchMode">
+                編輯貼文內容
+              </p>
+              <p v-else>
+                輸入貼文內容
+              </p>
               <div class="editor-outer">
-                <ul v-if="editor" class="editor-tool">
+                <ul
+                  v-if="editor"
+                  class="editor-tool"
+                >
                   <li
                     :class="{ 'is-active': editor.isActive('heading', { level: 2 }) }"
                     @click="editor.chain().focus().toggleHeading({ level: 2 }).run()"
@@ -58,16 +72,27 @@
                 <editor-content :editor="editor" />
               </div>
             </div>
-            <div v-if="sendData.images?.length" class="wrap patch-images-section">
+            <div
+              v-if="sendData.images?.length"
+              class="wrap patch-images-section"
+            >
               <p>目前上傳的圖片</p>
               <div class="images">
-                <img v-for="(image, index) in sendData.images" :key="'image' + index" :src="image.link" alt="" />
+                <img
+                  v-for="(image, index) in sendData.images"
+                  :key="'image' + index"
+                  :src="image.link"
+                  alt=""
+                >
               </div>
             </div>
             <div class="wrap image-section">
               <p>上傳貼文圖片</p>
               <div class="buttons">
-                <button class="image-add" type="button">
+                <button
+                  class="image-add"
+                  type="button"
+                >
                   <label for="upload">
                     上傳圖片
                     <input
@@ -77,19 +102,52 @@
                       accept="image/*"
                       multiple="multiple"
                       @change="preloadImageHandler"
-                    />
+                    >
                   </label>
                 </button>
-                <button class="image-clear" type="button" @click="clearImageHandler">清除圖片</button>
+                <button
+                  class="image-clear"
+                  type="button"
+                  @click="clearImageHandler"
+                >
+                  清除圖片
+                </button>
               </div>
-              <div v-if="imagesPrePath?.length" class="images">
-                <img v-for="(path, index) in imagesPrePath" :key="'image' + index" :src="path" alt="" />
+              <div
+                v-if="imagesPrePath?.length"
+                class="images"
+              >
+                <img
+                  v-for="(path, index) in imagesPrePath"
+                  :key="'image' + index"
+                  :src="path"
+                  alt=""
+                >
               </div>
             </div>
             <div class="wrap control-section">
-              <button v-if="isPatchMode" class="base-button blue" type="button" @click="patchSubmit">編輯完成</button>
-              <button v-else class="base-button blue" type="button" @click="postSubmit">確認送出</button>
-              <button v-if="isPatchMode" class="base-button red" type="button" @click="openPostUploadBox(false)">
+              <button
+                v-if="isPatchMode"
+                class="base-button blue"
+                type="button"
+                @click="patchSubmit"
+              >
+                編輯完成
+              </button>
+              <button
+                v-else
+                class="base-button blue"
+                type="button"
+                @click="postSubmit"
+              >
+                確認送出
+              </button>
+              <button
+                v-if="isPatchMode"
+                class="base-button red"
+                type="button"
+                @click="openPostUploadBox(false)"
+              >
                 取消編輯
               </button>
             </div>

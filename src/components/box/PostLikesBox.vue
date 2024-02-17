@@ -1,18 +1,32 @@
 <template>
   <div class="full-box">
-    <div class="full-bg" @click="openPostLikesBox(false)" />
+    <div
+      class="full-bg"
+      @click="openPostLikesBox(false)"
+    />
     <div class="full-container">
       <div class="full-inner">
         <div class="main-inner animate-inner">
           <div class="top-control">
-            <div class="close-button" @click="openPostLikesBox(false)">
+            <div
+              class="close-button"
+              @click="openPostLikesBox(false)"
+            >
               <i class="fa-solid fa-xmark" />
             </div>
           </div>
-          <div class="full-title">目前收藏的會員</div>
+          <div class="full-title">
+            目前收藏的會員
+          </div>
           <ul>
-            <li v-for="(list, index) in showPostLikesTemp" :key="'list' + index">
-              <router-link :to="`/user/info/${list._id}`" @click="openPostLikesBox(false)">
+            <li
+              v-for="(list, index) in showPostLikesTemp"
+              :key="'list' + index"
+            >
+              <router-link
+                :to="`/user/info/${list._id}`"
+                @click="openPostLikesBox(false)"
+              >
                 <div class="user-photo-outer">
                   <UserPhoto :photo="list.avatar" />
                 </div>

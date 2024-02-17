@@ -1,13 +1,25 @@
 <template>
   <div class="user-like">
-    <div class="common-title" data-aos="fade" data-aos-delay="800">
-      <p v-if="user_id === nowUser._id">我收藏的貼文</p>
-      <p v-else>{{ nowUser.name }} 收藏的貼文</p>
+    <div
+      class="common-title"
+      data-aos="fade"
+      data-aos-delay="800"
+    >
+      <p v-if="user_id === nowUser._id">
+        我收藏的貼文
+      </p>
+      <p v-else>
+        {{ nowUser.name }} 收藏的貼文
+      </p>
     </div>
     <div class="show-lists">
       <ul>
         <template v-if="postsData?.length">
-          <li v-for="data in postsData" :key="data._id" data-aos="fade">
+          <li
+            v-for="data in postsData"
+            :key="data._id"
+            data-aos="fade"
+          >
             <div class="info">
               <div class="user-photo-outer">
                 <UserPhoto :photo="data.user.avatar" />
@@ -16,7 +28,9 @@
                 <div class="name">
                   {{ data.user.name }}
                 </div>
-                <div class="time">發文時間： {{ dateFormat(data.createdAt) }}</div>
+                <div class="time">
+                  發文時間： {{ dateFormat(data.createdAt) }}
+                </div>
               </div>
             </div>
             <div class="tool">
@@ -60,7 +74,13 @@
           </li>
         </template>
         <template v-else>
-          <li class="no-data" data-aos="fade" data-aos-delay="1200">目前尚無收藏的貼文！</li>
+          <li
+            class="no-data"
+            data-aos="fade"
+            data-aos-delay="1200"
+          >
+            目前尚無收藏的貼文！
+          </li>
         </template>
       </ul>
     </div>

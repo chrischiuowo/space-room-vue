@@ -1,33 +1,76 @@
 <template>
   <div class="search-bar">
-    <div class="common-title" data-aos="fade" data-aos-delay="800">搜尋</div>
-    <div class="base-tools" data-aos="fade" data-aos-delay="1000">
+    <div
+      class="common-title"
+      data-aos="fade"
+      data-aos-delay="800"
+    >
+      搜尋
+    </div>
+    <div
+      class="base-tools"
+      data-aos="fade"
+      data-aos-delay="1000"
+    >
       <FilterSort v-if="nowSwitch === 1" />
       <SearchBar />
     </div>
-    <div class="tool" data-aos="fade" data-aos-delay="1000">
-      <router-link class="back" to="/">
+    <div
+      class="tool"
+      data-aos="fade"
+      data-aos-delay="1000"
+    >
+      <router-link
+        class="back"
+        to="/"
+      >
         <i class="fa-solid fa-circle-arrow-left" />
       </router-link>
       <div class="tabs">
-        <div class="tab" :class="{ active: nowSwitch === 1 }" @click="switchPage(1)">貼文</div>
-        <div class="tab" :class="{ active: nowSwitch === 2 }" @click="switchPage(2)">使用者</div>
+        <div
+          class="tab"
+          :class="{ active: nowSwitch === 1 }"
+          @click="switchPage(1)"
+        >
+          貼文
+        </div>
+        <div
+          class="tab"
+          :class="{ active: nowSwitch === 2 }"
+          @click="switchPage(2)"
+        >
+          使用者
+        </div>
       </div>
     </div>
     <div class="search-content">
       <div class="contents">
-        <div v-show="nowSwitch === 1" class="content">
+        <div
+          v-show="nowSwitch === 1"
+          class="content"
+        >
           <template v-if="posts.length">
-            <PostItem v-for="post in posts" :key="post._id" :post="post" />
+            <PostItem
+              v-for="post in posts"
+              :key="post._id"
+              :post="post"
+            />
           </template>
           <template v-else>
             <PostItem :post="{}" />
           </template>
         </div>
-        <div v-show="nowSwitch === 2" class="content">
+        <div
+          v-show="nowSwitch === 2"
+          class="content"
+        >
           <div class="users">
             <template v-if="users.length">
-              <UserItem v-for="user in users" :key="user._id" :user="user" />
+              <UserItem
+                v-for="user in users"
+                :key="user._id"
+                :user="user"
+              />
             </template>
             <template v-else>
               <UserItem :user="{}" />

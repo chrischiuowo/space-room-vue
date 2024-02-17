@@ -1,5 +1,9 @@
 <template>
-  <div v-if="hasData" class="user" data-aos="fade">
+  <div
+    v-if="hasData"
+    class="user"
+    data-aos="fade"
+  >
     <div class="user-inner">
       <router-link :to="`/user/info/${props.user._id}`">
         <div class="user-photo-outer">
@@ -9,19 +13,38 @@
           {{ props.user.name }}
         </div>
       </router-link>
-      <button v-if="followMode" class="base-button" type="button" @click="patchFollowsHandler(props.user._id)">
+      <button
+        v-if="followMode"
+        class="base-button"
+        type="button"
+        @click="patchFollowsHandler(props.user._id)"
+      >
         取消追蹤
       </button>
-      <button v-else class="base-button" type="button" @click="patchFollowsHandler(props.user._id)">追蹤</button>
+      <button
+        v-else
+        class="base-button"
+        type="button"
+        @click="patchFollowsHandler(props.user._id)"
+      >
+        追蹤
+      </button>
     </div>
   </div>
-  <div v-else class="no-data" data-aos="fade" data-aos-delay="1200">
+  <div
+    v-else
+    class="no-data"
+    data-aos="fade"
+    data-aos-delay="1200"
+  >
     <div class="top-bar">
       <div />
       <div />
       <div />
     </div>
-    <div class="no-t">目前無法取得更多使用者！</div>
+    <div class="no-t">
+      目前無法取得更多使用者！
+    </div>
   </div>
 </template>
 

@@ -1,5 +1,9 @@
 <template>
-  <div v-if="hasData" class="post" data-aos="fade-up">
+  <div
+    v-if="hasData"
+    class="post"
+    data-aos="fade-up"
+  >
     <div class="content">
       <div class="top">
         <router-link :to="`/user/info/${props.post.user._id}`">
@@ -11,12 +15,22 @@
             <p>{{ dateFormat(props.post.createdAt) }}</p>
           </div>
         </router-link>
-        <div v-if="props.post.user._id === userStore.user_id" class="post-control">
-          <i class="fa-solid fa-ellipsis" @click.stop="showPostControl = !showPostControl" />
+        <div
+          v-if="props.post.user._id === userStore.user_id"
+          class="post-control"
+        >
+          <i
+            class="fa-solid fa-ellipsis"
+            @click.stop="showPostControl = !showPostControl"
+          />
           <div v-if="showPostControl">
             <ul>
-              <li @click="openPostUploadBox(true, props.post)">編輯貼文</li>
-              <li @click="deletePostHandler(props.post)">刪除貼文</li>
+              <li @click="openPostUploadBox(true, props.post)">
+                編輯貼文
+              </li>
+              <li @click="deletePostHandler(props.post)">
+                刪除貼文
+              </li>
             </ul>
           </div>
         </div>
@@ -27,17 +41,42 @@
           <div v-html="props.post.content" />
           <!--eslint-enable-->
         </div>
-        <div v-if="props.post.images?.length" class="inner-photo">
-          <div v-if="props.post.images[0]?.link" class="img-control">
-            <img v-lazy="props.post.images[0].link" alt="" />
+        <div
+          v-if="props.post.images?.length"
+          class="inner-photo"
+        >
+          <div
+            v-if="props.post.images[0]?.link"
+            class="img-control"
+          >
+            <img
+              v-lazy="props.post.images[0].link"
+              alt=""
+            >
           </div>
-          <div v-if="props.post.images[1]?.link" class="img-control">
-            <img v-lazy="props.post.images[1].link" alt="" />
+          <div
+            v-if="props.post.images[1]?.link"
+            class="img-control"
+          >
+            <img
+              v-lazy="props.post.images[1].link"
+              alt=""
+            >
           </div>
-          <div v-if="props.post.images[2]?.link" class="img-control">
-            <img v-lazy="props.post.images[2].link" alt="" />
+          <div
+            v-if="props.post.images[2]?.link"
+            class="img-control"
+          >
+            <img
+              v-lazy="props.post.images[2].link"
+              alt=""
+            >
           </div>
-          <div v-if="props.post.images?.length >= 2" class="img-more" @click="openImagesBox(true, props.post.images)">
+          <div
+            v-if="props.post.images?.length >= 2"
+            class="img-more"
+            @click="openImagesBox(true, props.post.images)"
+          >
             <p>查看更多 ...</p>
           </div>
         </div>
@@ -48,13 +87,20 @@
       </div>
     </div>
   </div>
-  <div v-else class="no-data" data-aos="fade" data-aos-delay="1200">
+  <div
+    v-else
+    class="no-data"
+    data-aos="fade"
+    data-aos-delay="1200"
+  >
     <div class="top-bar">
       <div />
       <div />
       <div />
     </div>
-    <div class="no-t">目前尚無貼文！</div>
+    <div class="no-t">
+      目前尚無貼文！
+    </div>
   </div>
 </template>
 

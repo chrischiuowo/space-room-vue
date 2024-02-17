@@ -1,13 +1,25 @@
 <template>
   <div class="user-follower">
-    <div class="common-title" data-aos="fade" data-aos-delay="800">
-      <p v-if="user_id === nowUser._id">我的粉絲清單</p>
-      <p v-else>{{ nowUser.name }} 的粉絲清單</p>
+    <div
+      class="common-title"
+      data-aos="fade"
+      data-aos-delay="800"
+    >
+      <p v-if="user_id === nowUser._id">
+        我的粉絲清單
+      </p>
+      <p v-else>
+        {{ nowUser.name }} 的粉絲清單
+      </p>
     </div>
     <div class="show-lists">
       <ul>
         <template v-if="usersData?.length">
-          <li v-for="data in usersData" :key="data.user._id" data-aos="fade">
+          <li
+            v-for="data in usersData"
+            :key="data.user._id"
+            data-aos="fade"
+          >
             <div class="info">
               <router-link :to="`/user/info/${data.user._id}`">
                 <div class="user-photo-outer">
@@ -17,22 +29,40 @@
                   <div class="name">
                     {{ data.user.name }}
                   </div>
-                  <div class="time">追蹤時間： {{ dateFormat(data.createdAt) }}</div>
+                  <div class="time">
+                    追蹤時間： {{ dateFormat(data.createdAt) }}
+                  </div>
                 </div>
               </router-link>
             </div>
-            <div v-if="user_id === nowUser._id" class="tool">
-              <button class="base-button red" type="button" @click.stop="patchFollowsHandler(data.user)">移除</button>
+            <div
+              v-if="user_id === nowUser._id"
+              class="tool"
+            >
+              <button
+                class="base-button red"
+                type="button"
+                @click.stop="patchFollowsHandler(data.user)"
+              >
+                移除
+              </button>
             </div>
           </li>
         </template>
-        <div v-else class="no-data" data-aos="fade" data-aos-delay="1200">
+        <div
+          v-else
+          class="no-data"
+          data-aos="fade"
+          data-aos-delay="1200"
+        >
           <div class="top-bar">
             <div />
             <div />
             <div />
           </div>
-          <div class="no-t">目前尚無粉絲！</div>
+          <div class="no-t">
+            目前尚無粉絲！
+          </div>
         </div>
       </ul>
     </div>

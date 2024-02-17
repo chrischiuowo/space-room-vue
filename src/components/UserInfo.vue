@@ -1,6 +1,10 @@
 <template>
   <div class="user-info">
-    <div class="top-info" data-aos="fade-up" data-aos-delay="1000">
+    <div
+      class="top-info"
+      data-aos="fade-up"
+      data-aos-delay="1000"
+    >
       <div class="status">
         <div class="base">
           <div class="user-photo-outer">
@@ -10,7 +14,9 @@
             <div class="name">
               {{ nowUser.name }}
             </div>
-            <div class="create">創立日期： {{ dateFormat(nowUser.createdAt) }}</div>
+            <div class="create">
+              創立日期： {{ dateFormat(nowUser.createdAt) }}
+            </div>
           </div>
         </div>
         <div class="detail">
@@ -32,21 +38,45 @@
           </div>
         </div>
       </div>
-      <router-link v-if="user_id === nowUser._id" class="base-button file" to="/user/update">
+      <router-link
+        v-if="user_id === nowUser._id"
+        class="base-button file"
+        to="/user/update"
+      >
         編輯個人檔案
       </router-link>
       <div class="tool">
         <template v-if="user_id !== nowUser._id">
-          <button v-if="followMode" class="base-button" type="button" @click="patchFollowsHandler(nowUser._id)">
+          <button
+            v-if="followMode"
+            class="base-button"
+            type="button"
+            @click="patchFollowsHandler(nowUser._id)"
+          >
             取消追蹤
           </button>
-          <button v-else class="base-button" type="button" @click="patchFollowsHandler(nowUser._id)">追蹤</button>
+          <button
+            v-else
+            class="base-button"
+            type="button"
+            @click="patchFollowsHandler(nowUser._id)"
+          >
+            追蹤
+          </button>
         </template>
       </div>
     </div>
-    <div class="bottom-posts" data-aos="fade" data-aos-delay="1500">
+    <div
+      class="bottom-posts"
+      data-aos="fade"
+      data-aos-delay="1500"
+    >
       <template v-if="posts?.length">
-        <PostItem v-for="post in posts" :key="post._id" :post="post" />
+        <PostItem
+          v-for="post in posts"
+          :key="post._id"
+          :post="post"
+        />
       </template>
       <template v-else>
         <PostItem :post="{}" />

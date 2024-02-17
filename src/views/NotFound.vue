@@ -22,7 +22,12 @@
         <div class="shadow" />
       </div>
       <div class="go-back">
-        <router-link to="/" class="base-button"> 返回首頁 </router-link>
+        <router-link
+          to="/"
+          class="base-button"
+        >
+          返回首頁
+        </router-link>
       </div>
     </div>
   </section>

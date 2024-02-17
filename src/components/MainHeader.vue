@@ -3,30 +3,52 @@
     <div class="container">
       <div class="logo main-title small">
         <router-link to="/">
-          {{ appTitle }}
+          SpaceRoom
         </router-link>
       </div>
       <div class="other">
         <div class="quick-icon">
-          <a href="javascript:;" class="color-switch">
-            <i v-if="darkMode" class="fa-solid fa-moon" />
-            <i v-else class="fa-solid fa-sun" />
+          <a
+            href="javascript:;"
+            class="color-switch"
+          >
+            <i
+              v-if="darkMode"
+              class="fa-solid fa-moon"
+            />
+            <i
+              v-else
+              class="fa-solid fa-sun"
+            />
           </a>
-          <a href="javascript:;" @click.prevent="noticeSwitch(true)">
+          <a
+            href="javascript:;"
+            @click.prevent="noticeSwitch(true)"
+          >
             <i class="fa-solid fa-bell" />
           </a>
         </div>
-        <div class="bars" @click="menuSwitch(true)">
+        <div
+          class="bars"
+          @click="menuSwitch(true)"
+        >
           <i class="fa-solid fa-bars" />
         </div>
       </div>
     </div>
   </div>
   <!-- 主選單 -->
-  <div class="bars-content menu" :class="{ active: menuShow }" @click="menuSwitch(false)">
+  <div
+    class="bars-content menu"
+    :class="{ active: menuShow }"
+    @click="menuSwitch(false)"
+  >
     <div class="bars-inner">
       <div>
-        <div class="close-button" @click="menuSwitch(false)">
+        <div
+          class="close-button"
+          @click="menuSwitch(false)"
+        >
           <i class="fa-solid fa-xmark" />
         </div>
         <div class="user-photo-outer">
@@ -37,40 +59,75 @@
         </div>
         <ul @click="menuSwitch(false)">
           <li>
-            <router-link :to="`/user/info/${userStore.user_id}`"> 個人資料 </router-link>
+            <router-link :to="`/user/info/${userStore.user_id}`">
+              個人資料
+            </router-link>
           </li>
           <li>
-            <router-link to="/user/update"> 編輯個人資料 </router-link>
+            <router-link to="/user/update">
+              編輯個人資料
+            </router-link>
           </li>
           <li>
-            <router-link :to="`/user/likes/${userStore.user_id}`"> 我收藏的貼文 </router-link>
+            <router-link :to="`/user/likes/${userStore.user_id}`">
+              我收藏的貼文
+            </router-link>
           </li>
           <li>
-            <router-link :to="`/user/comments/${userStore.user_id}`"> 我留言的貼文 </router-link>
+            <router-link :to="`/user/comments/${userStore.user_id}`">
+              我留言的貼文
+            </router-link>
           </li>
           <li>
-            <router-link to="/user/more"> 找朋友 </router-link>
+            <router-link to="/user/more">
+              找朋友
+            </router-link>
           </li>
           <li>
-            <router-link to="/auth" @click="logoutAuth"> 登出 </router-link>
+            <router-link
+              to="/auth"
+              @click="logoutAuth"
+            >
+              登出
+            </router-link>
           </li>
         </ul>
       </div>
     </div>
   </div>
   <!-- 通知 -->
-  <div class="bars-content notice" :class="{ active: noticeShow }" @click="noticeSwitch(false)">
+  <div
+    class="bars-content notice"
+    :class="{ active: noticeShow }"
+    @click="noticeSwitch(false)"
+  >
     <div class="bars-inner">
       <div>
-        <div class="close-button" @click="noticeSwitch(false)">
+        <div
+          class="close-button"
+          @click="noticeSwitch(false)"
+        >
           <i class="fa-solid fa-xmark" />
         </div>
-        <div class="name">通知</div>
-        <ul v-if="noticeNew?.length" @click="noticeSwitch(false)">
-          <li v-for="(notice, index) in noticeNew" :key="index + 'notice'">
-            <router-link v-if="notice.type === 'post'" :to="`/post/${notice.post_id}`">
+        <div class="name">
+          通知
+        </div>
+        <ul
+          v-if="noticeNew?.length"
+          @click="noticeSwitch(false)"
+        >
+          <li
+            v-for="(notice, index) in noticeNew"
+            :key="index + 'notice'"
+          >
+            <router-link
+              v-if="notice.type === 'post'"
+              :to="`/post/${notice.post_id}`"
+            >
               <div class="top">
-                <div class="type">貼文</div>
+                <div class="type">
+                  貼文
+                </div>
                 <div class="time">
                   {{ dateFormat(notice.time) }}
                 </div>
@@ -79,9 +136,14 @@
                 {{ notice.name + '發佈了新貼文快去查看吧！' }}
               </div>
             </router-link>
-            <router-link v-else-if="notice.type === 'comment'" :to="`/post/${notice.post_id}`">
+            <router-link
+              v-else-if="notice.type === 'comment'"
+              :to="`/post/${notice.post_id}`"
+            >
               <div class="top">
-                <div class="type">留言</div>
+                <div class="type">
+                  留言
+                </div>
                 <div class="time">
                   {{ dateFormat(notice.time) }}
                 </div>
@@ -90,9 +152,14 @@
                 {{ notice.name + '新增了留言快去查看吧！' }}
               </div>
             </router-link>
-            <router-link v-else-if="notice.type === 'follow'" :to="`/user/followers/${user_id}`">
+            <router-link
+              v-else-if="notice.type === 'follow'"
+              :to="`/user/followers/${user_id}`"
+            >
               <div class="top">
-                <div class="type">追蹤</div>
+                <div class="type">
+                  追蹤
+                </div>
                 <div class="time">
                   {{ dateFormat(notice.time) }}
                 </div>
@@ -106,7 +173,9 @@
         <ul v-else>
           <li>
             <div class="top" />
-            <div class="bottom">目前無新的通知</div>
+            <div class="bottom">
+              目前無新的通知
+            </div>
           </li>
         </ul>
       </div>
@@ -124,7 +193,6 @@ import { getUserNotice } from '@/fetch/fetch'
 import { dateFormat } from '@/services/helper'
 import router from '@/router/index'
 
-const appTitle = ref(import.meta.env.VITE_APP_NAME)
 const userStore = useUserStore()
 const modalStore = useModalStore()
 const { user_id, avatar, name } = storeToRefs(userStore)

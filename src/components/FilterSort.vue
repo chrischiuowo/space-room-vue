@@ -1,6 +1,12 @@
 <template>
-  <div class="filter-select" :class="{ active: selecting }">
-    <div class="drop-top" @click="selecting = !selecting">
+  <div
+    class="filter-select"
+    :class="{ active: selecting }"
+  >
+    <div
+      class="drop-top"
+      @click="selecting = !selecting"
+    >
       <div class="now-value">
         {{ selectValue === 'hot' ? '最熱門貼文' : selectValue === 'old' ? '最舊貼文' : '最新貼文' }}
       </div>
@@ -10,9 +16,24 @@
     </div>
     <div class="drop-bottom">
       <ul>
-        <li :class="{ selected: selectValue === null }" @click.stop="selected(null)">最新貼文</li>
-        <li :class="{ selected: selectValue === 'hot' }" @click.stop="selected('hot')">最熱門貼文</li>
-        <li :class="{ selected: selectValue === 'old' }" @click.stop="selected('old')">最舊貼文</li>
+        <li
+          :class="{ selected: selectValue === null }"
+          @click.stop="selected(null)"
+        >
+          最新貼文
+        </li>
+        <li
+          :class="{ selected: selectValue === 'hot' }"
+          @click.stop="selected('hot')"
+        >
+          最熱門貼文
+        </li>
+        <li
+          :class="{ selected: selectValue === 'old' }"
+          @click.stop="selected('old')"
+        >
+          最舊貼文
+        </li>
       </ul>
     </div>
   </div>
