@@ -1,0 +1,98 @@
+@use 'sass:math';
+
+@mixin mobile-s {
+  @media (max-width: 350px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin pad {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin ipad-pro {
+  @media (min-height: 1194px) {
+    @content;
+  }
+}
+
+@mixin rwd-set($max-width) {
+  @media (max-width: '#{$max-width}px') {
+    @content;
+  }
+}
+
+@function px($px) {
+  @return math.div($px, 16) * 1rem;
+}
+
+@mixin set-editor() {
+  > * + * {
+    margin-top: 0.75em;
+  }
+
+  ul,
+  ol {
+    padding: 0 1rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    line-height: 1.1;
+  }
+
+  h2 {
+    font-size: px(20);
+    font-weight: $bold;
+  }
+
+  strong {
+    font-weight: $medium;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  pre {
+    padding: 0.75rem 1rem;
+    color: $c-white;
+    background: $c-black;
+    border-radius: 0.5rem;
+
+    code {
+      padding: 0;
+      font-size: 0.8rem;
+      color: inherit;
+      background: none;
+    }
+  }
+
+  mark {
+    background-color: $c-yellow;
+  }
+
+  blockquote {
+    border-left: 2px solid rgba($c-black, 0.1);
+    padding-left: 1rem;
+  }
+
+  hr {
+    margin: 2rem 0;
+    border: unset;
+    border-top: 2px solid rgba($c-black, 0.1);
+  }
+}

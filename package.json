@@ -1,0 +1,43 @@
+{
+  "name": "space-room",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "vite --mode development",
+    "build": "vite build --mode production",
+    "preview": "vite preview",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@tiptap/extension-highlight": "^2.0.0-beta.35",
+    "@tiptap/extension-placeholder": "^2.0.0-beta.53",
+    "@tiptap/extension-text-align": "^2.0.0-beta.31",
+    "@tiptap/starter-kit": "^2.0.0-beta.191",
+    "@tiptap/vue-3": "^2.0.0-beta.96",
+    "aos": "^2.3.4",
+    "axios": "^0.27.2",
+    "core-js": "^3.23.3",
+    "pinia": "^2.0.14",
+    "pinia-plugin-persistedstate": "^1.6.3",
+    "postcss-scss": "^4.0.4",
+    "swiper": "^8.0.0",
+    "three": "^0.143.0",
+    "validator": "^13.7.0",
+    "vue": "^3.2.25",
+    "vue-axios": "^3.4.1",
+    "vue-router": "^4.0.16",
+    "vue3-lazyload": "^0.3.6"
+  },
+  "devDependencies": {
+    "@rollup/plugin-alias": "^3.1.9",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "eslint": "^8.22.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-vue": "^9.3.0",
+    "postcss": "^8.4.16",
+    "postcss-html": "^1.5.0",
+    "sass": "^1.54.4",
+    "vite": "^2.9.9"
+  }
+}

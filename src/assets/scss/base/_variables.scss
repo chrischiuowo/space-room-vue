@@ -1,0 +1,37 @@
+$c-first: #065FC5;
+$c-second: #DFEAF6;
+$c-red: #DE4B63;
+$c-yellow: #FAA722;
+$c-green: #549715;
+$c-gray-1: #EFECE7;
+$c-gray-2: #E4E6EB;
+$c-gray-3: #9B9893;
+$c-gray-4: #5A5A5A;
+$c-white: #FFF;
+$c-black: #2F2F2F;
+
+body {
+  &.light-theme {
+    --light: #FFF;
+    --light2: #EDECEC;
+    --dark: #2F2F2F;
+    --dark2: #4E4D4D;
+    --gray: #9B9893;
+    --gray2: #7F7C77;
+  }
+
+  &.dark-theme {
+    --light: #2F2F2F;
+    --light2: #505050;
+    --dark: #D4CEC4;
+    --dark2: #E0D9CC;
+    --gray: #AEAEAE;
+    --gray2: #989797;
+  }
+}
+
+$light: 300;
+$regular: 400;
+$medium: 500;
+$bold: 700;
+$black: 900;
