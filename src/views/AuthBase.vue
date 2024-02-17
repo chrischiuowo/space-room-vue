@@ -319,6 +319,8 @@ canvas {
     max-width: 870px;
     border: 2px solid $c-black;
     box-shadow: 0 2px 12px #fff;
+    border-radius: 20px;
+    overflow: hidden;
 
     &::before {
       position: absolute;

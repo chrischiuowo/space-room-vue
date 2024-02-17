@@ -1,9 +1,5 @@
 <template>
-  <aside
-    class="side-bar"
-    data-aos="fade-up"
-    data-aos-delay="1000"
-  >
+  <aside class="side-bar">
     <div class="container">
       <button
         class="base-button blue"
@@ -56,11 +52,7 @@
     </div>
   </aside>
 
-  <aside
-    class="mobile-bar"
-    data-aos="fade"
-    data-aos-delay="1000"
-  >
+  <aside class="mobile-bar">
     <ul>
       <li>
         <router-link to="/">

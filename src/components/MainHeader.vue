@@ -541,6 +541,7 @@ watch(
     height: 100%;
     color: var(--dark);
     background-color: var(--light);
+    border-radius: 6px;
   }
 
   a {

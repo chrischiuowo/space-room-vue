@@ -52,10 +52,12 @@ useReq.interceptors.response.use(
       console.log(`❌ ${error}`)
     }
 
-    if (error.response) {
+    if (error?.response?.data) {
       const { message } = error.response.data
       openAlert('error', message)
     }
+
+    if (error?.message) openAlert('error', error.message)
 
     //  若 timeout 伺服器無回應，則重新打 API
     if (error.code === 'ECONNABORTED' && error.message.indexOf('timeout') !== -1) {

@@ -48,7 +48,7 @@ export const usePostStore = defineStore('postStore', {
     async addCommentData (post_id, data) {
       const index = this.posts.findIndex((post) => post._id === post_id)
       const ary = this.posts[index]
-      console.log(ary)
+
       if (ary.comments) {
         ary.comments.unshift(data)
       } else {

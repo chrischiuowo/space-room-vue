@@ -204,6 +204,7 @@ textarea {
   color: var(--dark);
   background-color: var(--light);
   border: 2px solid var(--dark);
+  border-radius: 6px;
 
   &::placeholder {
     font-size: px(18);
