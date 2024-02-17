@@ -10,7 +10,7 @@ const isDev = import.meta.env.VITE_ENV === 'dev'
 const useReq = axios.create()
 
 // timeout 請求時限
-axios.defaults.timeout = 1000
+axios.defaults.timeout = 2000
 // retry 請求次數
 axios.defaults.retry = 4
 // retryDelay 請求間隙
@@ -49,16 +49,10 @@ useReq.interceptors.response.use(
     closeLoading()
 
     if (isDev) {
-      console.log(
-        `❌ ${error.response.status}: ${error.response.data.message}`,
-        `API: ${error.response.config.url}，`,
-        error.response
-      )
+      console.log(`❌ ${error}`)
     }
 
     if (error.response) {
-      // const { status } = error.response
-      // const { name } = error.response.data.error
       const { message } = error.response.data
       openAlert('error', message)
     }
@@ -69,8 +63,6 @@ useReq.interceptors.response.use(
       config.__retryCount = config.__retryCount || 0
 
       if (config.__retryCount >= config.retry) {
-        // Reject with the error
-        // window.location.reload()
         return Promise.reject(error)
       }
 

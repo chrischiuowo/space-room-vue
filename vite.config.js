@@ -22,13 +22,4 @@ export default defineConfig({
       ]
     })
   ]
-  // server: {
-  //   proxy: {
-  //     '/api': {
-  //       target: 'https://pacific-hollows-47308.herokuapp.com',
-  //       changeOrigin: true,
-  //       secure: false
-  //     }
-  //   }
-  // }
 })
